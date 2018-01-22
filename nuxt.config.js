@@ -13,6 +13,7 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
+  router: { base: '/gmarket-gazua/' },
   /*
   ** Customize the progress bar color
   */
