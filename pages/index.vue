@@ -3,7 +3,7 @@
     <div>
       <app-logo/>
       <h1 class="title">
-        지마켓 자동 생성기
+        (-_-)
       </h1>
       <h2 class="subtitle">
         <input v-model="id">아이디</input>
@@ -36,25 +36,24 @@ export default {
   methods: {
       btn: function() {
           const client = axios.create({
-            baseURL: 'https://gmemberssl.gmarket.co.kr/Registration/JsonAddNewMember',
-            timeout: 1000,
+//            baseURL: 'https://gmemberssl.gmarket.co.kr/Registration/JsonAddNewMember',
             headers: {'X-Custom-Header': 'foobar'}
           });
-          const payload = {
-            loginId: 'alpshigh16',
-            custNm: 'alpshigh16',
-            pwd: 'zcx132',
-            email: 'alpshigh16%40ruu.kr',
-            birthData: '20180123',
-            isrcvmail: 'Y',
-            gender: 'M',
-            nationCode: 'HK',
-            joinChannelType: null,
-            jaehu_id: null,
-          }
-          client.post('/', payload)
-            .then((a) => console.log('hihi'))
-            .catch(e => console.log("error", e))
+//          const payload = {
+//            loginId: 'alpshigh17',
+//            custNm: 'alpshigh17',
+//            pwd: 'zcx132',
+//            email: 'alpshigh17%40ruu.kr',
+//            birthData: '20180123',
+//            isrcvmail: 'Y',
+//            gender: 'M',
+//            nationCode: 'HK',
+//            joinChannelType: '',
+//            jaehu_id: '',
+//          }
+//          client.post('https://gmemberssl.gmarket.co.kr/Registration/JsonAddNewMember', payload)
+//            .then((a) => console.log('hihi', a))
+//            .catch(e => console.log("error", e))
       }
   }
 }
