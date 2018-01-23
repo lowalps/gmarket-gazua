@@ -3,20 +3,15 @@
     <div>
       <app-logo/>
       <h1 class="title">
-        gauto
+        지마켓 자동 생성기
       </h1>
       <h2 class="subtitle">
-        Nuxt.js project
+        <input v-model="id">아이디</input>
+        <input v-model="number1">숫자 범위 시작</input>
+        <input v-model="number2">숫자 범위 끝</input>
       </h2>
       <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green">Documentation</a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey">GitHub</a>
+        <div class="button--green" @click="btn">생성하기</div>
       </div>
     </div>
   </section>
@@ -24,10 +19,43 @@
 
 <script>
 import AppLogo from '~/components/AppLogo.vue'
+import axios from 'axios'
 
 export default {
   components: {
     AppLogo
+  },
+  data () {
+    return {
+      valid: false,
+      id: '',
+      number1: '',
+      number2: '',
+    }
+  },
+  methods: {
+      btn: function() {
+          const client = axios.create({
+            baseURL: 'https://gmemberssl.gmarket.co.kr/Registration/JsonAddNewMember',
+            timeout: 1000,
+            headers: {'X-Custom-Header': 'foobar'}
+          });
+          const payload = {
+            loginId: 'alpshigh16',
+            custNm: 'alpshigh16',
+            pwd: 'zcx132',
+            email: 'alpshigh16%40ruu.kr',
+            birthData: '20180123',
+            isrcvmail: 'Y',
+            gender: 'M',
+            nationCode: 'HK',
+            joinChannelType: null,
+            jaehu_id: null,
+          }
+          client.post('/', payload)
+            .then((a) => console.log('hihi'))
+            .catch(e => console.log("error", e))
+      }
   }
 }
 </script>

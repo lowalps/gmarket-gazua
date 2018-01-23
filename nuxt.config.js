@@ -1,7 +1,12 @@
 module.exports = {
-  /*
-  ** Headers of the page
-  */
+  build: {
+    vendor: ['element-ui']
+  },
+  plugins: [
+    // Will inject the plugin in the $root app and also in the context as `i18n`
+    { src: '~plugins/vuetify.js' }
+  ],
+  srcDir: '.',
   head: {
     title: 'gauto',
     meta: [
@@ -10,30 +15,9 @@ module.exports = {
       { hid: 'description', name: 'description', content: 'Nuxt.js project' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' }
     ]
   },
   router: { base: '/gmarket-gazua/' },
-  /*
-  ** Customize the progress bar color
-  */
-  loading: { color: '#3B8070' },
-  /*
-  ** Build configuration
-  */
-  build: {
-    /*
-    ** Run ESLint on save
-    */
-    extend (config, { isDev, isClient }) {
-      if (isDev && isClient) {
-        config.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules)/
-        })
-      }
-    }
-  }
 }
